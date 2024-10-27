@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Fruits from './components/Fruits'
 import Loader from './components/Loader'
 
+/* eslint-disable-next-line */
 import { getFruits, getDirectFruits } from './api/fruits'
 import { FruitResponse } from './api/types';
 
