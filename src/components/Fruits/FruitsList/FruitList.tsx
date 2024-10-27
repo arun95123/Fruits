@@ -12,7 +12,7 @@ import ListView from './ListView';
 import { FruitResponse } from '../../../api/types'
 import './fruit-list.css'
 
-//Move to context api
+//TODO: Move to context api
 type Props = {
     fruits: FruitResponse
     selectFruits: Function
@@ -23,7 +23,7 @@ const FruitList: FC<Props> = ({ fruits, selectFruits }) => {
     const [showTable, setTableView] = useState(false);
 
     const handleChange = (event: SelectChangeEvent) => {
-        //revist type
+        //TODO: revist type
         setGroup(event.target.value as 'family' | 'order' | 'genus' | '');
     };
 

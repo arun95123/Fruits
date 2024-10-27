@@ -4,8 +4,6 @@
     align-items: center;
 }
 
-.list-item--header:hover {}
-
 .list-item--controls {
     display: flex;
     align-items: center;

@@ -17,7 +17,6 @@ const ListItem: FC<Props> = ({ children, name, calories, showAdd, addOnClick = (
     const [showAccordian, setAccordian] = useState(false)
     const accordianClick = (e: React.MouseEvent<HTMLDivElement>) => {
         if (children) {
-            // e.preventDefault()
             setAccordian((prev) => !prev)
         }
     }

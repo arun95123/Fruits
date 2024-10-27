@@ -5,7 +5,6 @@ import './jar.css'
 import { type SelectedFruits } from '../types';
 
 type Props = {
-    // selectedFruits: FruitData[]
     selectedFruits: SelectedFruits
 }
 
@@ -16,16 +15,7 @@ type ChartData = {
 }[]
 
 const Jar: FC<Props> = ({ selectedFruits }) => {
-    // const totalCalories = selectedFruits.reduce((sum, fruit) => sum + fruit.nutritions.calories, 0)
     let charData: ChartData = []
-    // selectedFruits.forEach((fruit) => {
-    //     {
-    //         id: fruit.id
-    //         value: fruit.nutritions.calories,
-    //         label: fruit.name
-    //     }
-
-    // })
     let ListItem: ReactNode[] = []
     let totalCalories = 0;
     selectedFruits.forEach((fruit, id) => {

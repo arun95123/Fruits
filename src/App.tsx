@@ -31,6 +31,7 @@ function App() {
       case 'success':
         return <Fruits fruits={fruits ?? []} />
       case 'failure':
+        //TODO: Add error component
         return <h2>Error</h2>
       case 'loading':
         return <Loader />
