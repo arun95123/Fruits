@@ -15,12 +15,7 @@ The reason to do this is because of the CORS issue with the hosted api.
 So a netlify express function has been created to make the api call from server.
 
 If you want to run the project without Netlify
-- change `App.tsx` line 19
-from
-```
-    const response = await getFruits()
-```
-to
+- change `App.tsx` line 19 to
 ```
     const response = await getDirectFruits()
 ```
@@ -28,4 +23,4 @@ to
 ```
     npm start
 ```
--then disable CORS in your browser to get the app working
+- then disable CORS in your browser to get the app working
