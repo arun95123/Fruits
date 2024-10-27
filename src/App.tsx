@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Fruits from './components/Fruits'
 import Loader from './components/Loader'
 
-import { getFruits } from './api/fruits'
+import { getFruits, getDirectFruits } from './api/fruits'
 import { FruitResponse } from './api/types';
 
 type Status = 'init' | 'loading' | 'success' | 'failure'
