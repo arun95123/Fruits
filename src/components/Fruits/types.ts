@@ -4,3 +4,4 @@ export type SelectedFruits = Map<number, {
     quantity: number
 }>
 
+export type Group = 'family' | 'order' | 'genus' | ''

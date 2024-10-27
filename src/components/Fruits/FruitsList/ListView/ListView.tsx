@@ -1,13 +1,21 @@
 import React, { FC, ReactNode } from 'react'
 
-import { FruitData, FruitResponse } from '../../../../api/types'
-import './list-view.css'
 import ListItem from './ListItem.tsx';
+
+import { FruitData, FruitResponse } from '../../../../api/types'
+import { Group } from '../../types.js';
+import './list-view.css'
 
 type Prop = {
     fruits: FruitResponse
     selectFruits: Function
-    group: 'family' | 'order' | 'genus' | ''
+    group: Group
+}
+
+
+type GroupedValue = {
+    calories: number
+    children: FruitData[]
 }
 
 const ListView: FC<Prop> = ({ fruits, selectFruits, group }) => {
@@ -22,14 +30,13 @@ const ListView: FC<Prop> = ({ fruits, selectFruits, group }) => {
     const groupBy = () => {
         let elements: ReactNode[] = [];
         if (group) {
-            const groupedValues = new Map()
+            const groupedValues = new Map<string, GroupedValue>()
             fruits.forEach((fruit) => {
-                if (groupedValues.has(fruit[group])) {
-                    let curr = groupedValues.get(fruit[group])
-                    curr.children.push(fruit)
+                let currentGroup = groupedValues.get(fruit[group])
+                if (currentGroup) {
                     groupedValues.set(fruit[group], {
-                        calories: curr.calories + fruit.nutritions.calories,
-                        children: curr.children
+                        calories: currentGroup.calories + fruit.nutritions.calories,
+                        children: [...currentGroup.children, fruit]
                     })
                 } else {
                     groupedValues.set(fruit[group], {

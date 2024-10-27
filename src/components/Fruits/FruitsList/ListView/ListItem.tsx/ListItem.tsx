@@ -36,8 +36,7 @@ const ListItem: FC<Props> = ({ children, name, calories, showAdd, addOnClick = (
                         </IconButton> : <></>
                 }
                 {
-                    children ? <ArrowDropDownTwoToneIcon />
-                        : <></>
+                    children ? <ArrowDropDownTwoToneIcon /> : <></>
                 }
             </div>
         </div>

@@ -58,13 +58,16 @@ const FruitList: FC<Props> = ({ fruits, selectFruits }) => {
     }
 
     const showTableToggle = () => (
-        <FormControlLabel control={
-            <Switch
-                checked={showTable}
-                onChange={handleToggle}
-                inputProps={{ 'aria-label': 'controlled' }}
-            />
-        } label="Table View" />
+        <FormControlLabel
+            control={
+                <Switch
+                    checked={showTable}
+                    onChange={handleToggle}
+                    inputProps={{ 'aria-label': 'controlled' }}
+                />
+            }
+            label="Table View"
+        />
     )
 
     return <div className='fruit-list'>
