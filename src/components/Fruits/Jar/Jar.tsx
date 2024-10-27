@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useState } from 'react'
+import React, { FC, ReactNode } from 'react'
 import { PieChart } from '@mui/x-charts/PieChart';
 
 import './jar.css'
