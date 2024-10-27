@@ -1,24 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+
+import Fruits from './components/Fruits'
+import Loader from './components/Loader'
+
+import { getFruits } from './api/fruits'
+import { FruitResponse } from './api/types';
+
+type Status = 'init' | 'loading' | 'success' | 'failure'
 
 function App() {
+  const [status, setStatus] = useState<Status>('init')
+  const [fruits, setFruits] = useState<FruitResponse | null>(null)
+
+  useEffect(() => {
+    setStatus('loading')
+    const getData = async () => {
+      const response = await getFruits()
+      if (response.isSuccess) {
+        setFruits(response.data)
+        setStatus('success')
+      } else {
+        setStatus('failure')
+      }
+    }
+    getData()
+  }, [])
+
+  const showContent = () => {
+    switch (status) {
+      case 'success':
+        return <Fruits fruits={fruits ?? []} />
+      case 'failure':
+        return <h2>Error</h2>
+      case 'loading':
+        return <Loader />
+      default:
+        <></>
+    }
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {showContent()}
     </div>
   );
 }
